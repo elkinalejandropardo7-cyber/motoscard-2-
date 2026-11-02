@@ -1,0 +1,15 @@
+
+{% load static %}
+{% include 'gpcol/index.html' %}
+
+{% block content %}
+
+
+<form method="POST" class="formulario-container">
+        {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Guardar piloto</button>
+</form>
+{% endblock %}

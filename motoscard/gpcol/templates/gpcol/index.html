@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilotos</title>
+    <link rel="stylesheet" href="{% static 'gpcol/css/estilos.css' %}">
+</head>
+
+<body>
+
+    <header class="encabezado">
+        <h1>Listado de Pilotos de Competición</h1>
+        <p>Gestión de pilotos y carreras de motociclismo</p>
+        <a href="{% url 'crear_piloto' %}" class="boton-crear">
+            Registrar piloto
+        </a>
+    </header>
+
+    <main class="contenedor-principal">
+        {% block content %}
+        
+        <section class="tabla-seccion">
+
+            <table class="tabla-aprendices">
+                <thead> 
+                    <tr>
+                        <th>Documento</th>
+                        <th>Nombre Completo</th>
+                        <th>Correo</th>
+                        <th>Teléfono</th>
+                        <th>N.º Competición</th>
+                        <th>Grupo RH</th>
+                        <th>Carreras</th>
+                        <th>acciones</th>
+                        <th>eliminar</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for piloto in pilotos %}
+                    <tr class="fila-aprendiz">
+
+                        <td class="col-documento">
+                            {{ piloto.documento }}
+                        </td>
+
+                        <td class="col-nombre">
+                            {{ piloto.nombre }} {{ piloto.apellido }}
+                        </td>
+
+                        <td class="col-correo">
+                            {{ piloto.correo }}
+                        </td>
+
+                        <td>
+                            {{ piloto.telefono }}
+                        </td>
+
+                        <td>
+                            {{ piloto.numero_de_competicion }}
+                        </td>
+
+                        <td>
+                            {{ piloto.rh }}
+                        </td>
+
+                        <td>
+                            <ul>
+                                {% for carrera in piloto.carrera.all %}
+                                <li>{{ carrera.nombre_valida }}</li>
+                                {% empty %}
+                                <li class="sin-competencias">
+                                    Sin carreras asignadas
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>
+                            <a href="{% url 'editar_piloto' piloto.documento %}" class="btn btn-sm">
+                                Editar
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'eliminar_piloto' piloto.documento %}" class="btn btn-sm">
+                                eliminar
+                            </a>
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+                    <tr class="fila-vacia">
+                        <td colspan="9">
+                            No hay pilotos registrados actualmente.
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+
+
+            </table>
+
+
+        </section>
+        {% endblock %}
+    </main>
+
+</body>
+
+</html>

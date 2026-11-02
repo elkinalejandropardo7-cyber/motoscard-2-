@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+
+    /* Fondo oscuro estilo MotoGP */
+    background:
+        linear-gradient(
+            rgba(10, 10, 10, 0.82),
+            rgba(15, 15, 15, 0.90)
+        ),
+        url("/static/bases/img/fondo-motogp.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ENCABEZADO */
+.encabezado {
+    background: linear-gradient(135deg, #151515, #b00000);
+    padding: 35px 20px;
+    text-align: center;
+    border-bottom: 5px solid #ed1c24;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.encabezado h1 {
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px #000;
+}
+
+.encabezado p {
+    color: #eeeeee;
+    font-size: 16px;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor-principal {
+    width: 95%;
+    max-width: 1450px;
+    margin: 40px auto;
+}
+
+/* CONTENEDOR DE LA TABLA */
+.tabla-seccion {
+    background: rgba(20, 20, 20, 0.94);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    border-top: 4px solid #ed1c24;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+    overflow-x: auto;
+}
+
+/* TABLA */
+.tabla-aprendices {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+/* ENCABEZADOS */
+.tabla-aprendices thead {
+    background: #c60000;
+    color: #ffffff;
+}
+
+.tabla-aprendices th {
+    padding: 16px 12px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* CELDAS */
+.tabla-aprendices td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #383838;
+    font-size: 14px;
+}
+
+/* FILAS ALTERNADAS */
+.tabla-aprendices tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* EFECTO AL PASAR EL CURSOR */
+.tabla-aprendices tbody tr:hover {
+    background: rgba(237, 28, 36, 0.18);
+    transition: background 0.25s ease;
+}
+
+/* DOCUMENTO */
+.col-documento {
+    color: #ff5555;
+    font-weight: bold;
+}
+
+/* NOMBRE DEL PILOTO */
+.col-nombre {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* CORREO */
+.col-correo {
+    overflow-wrap: anywhere;
+    color: #cccccc;
+}
+
+/* LISTA DE CARRERAS */
+.tabla-aprendices ul {
+    padding-left: 18px;
+}
+
+.tabla-aprendices li {
+    margin: 4px 0;
+}
+
+/* CUANDO NO HAY CARRERAS */
+.sin-competencias {
+    color: #999999;
+    font-style: italic;
+}
+
+/* CUANDO NO HAY REGISTROS */
+.fila-vacia td {
+    text-align: center;
+    padding: 30px;
+    color: #bbbbbb;
+}
+
+/* ADAPTACIÓN A CELULARES */
+@media (max-width: 768px) {
+    .encabezado {
+        padding: 25px 12px;
+    }
+
+    .encabezado h1 {
+        font-size: 23px;
+    }
+
+    .contenedor-principal {
+        width: 98%;
+        margin: 20px auto;
+    }
+
+    .tabla-seccion {
+        padding: 12px;
+    }
+}
+/* sdsdfdsfds */
+
+
+
+
+/* FORMULARIO DE PILOTOS */
+
+main.contenedor-principal .titulo-formulario {
+    color: white;
+    text-align: center;
+    margin: 25px auto;
+}
+
+main.contenedor-principal form.formulario-container {
+    display: block;
+    width: 90%;
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #fff;
+    color: #222;
+    border: 2px solid #e10600;
+    border-radius: 12px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+form.formulario-container p {
+    margin: 0 0 18px;
+}
+
+form.formulario-container label {
+    display: block;
+    margin-bottom: 7px;
+    color: #333;
+    font-weight: bold;
+}
+
+form.formulario-container input:not([type="checkbox"]):not([type="radio"]),
+form.formulario-container select,
+form.formulario-container textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    background: #f7f7f7;
+    color: #222;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+form.formulario-container button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: #e10600;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form.formulario-container button[type="submit"]:hover {
+    background: #b30500;
+}
+
+form.formulario-container .volver-pilotos {
+    display: inline-block;
+    margin-top: 15px;
+    color: #c40000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+form.formulario-container .volver-pilotos:hover {
+    text-decoration: underline;
+}
